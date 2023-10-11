@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {list} from './data';
 
-const List = () => {
-  const [data,setData]=useState([]);
+const List = ({people}) => {
+  // const [data,setData]=useState(list);
 
-  function pushData(){
-    const people=list.map((item)=>{return item.age})
-    setData(people)
-  }
+  // useEffect(()=>{
+  // //   const Arr=[];
+  // //   const result=list.map((item)=>{return(item)});
+  // //   Arr.push(result)
+  // //   setData(result)
+
+  // // },[])
  
   return (
     
     <>
-    {/* {list.map((item)=>{
-      return (<h3>{item.id}{item.name}{item.age}</h3>)
-    })} */}
+   {
+people.map((person)=>{
+  const{id,name,age,image}=person;
+
+  return(
+    <article className='person' key={id}>
+      <image src={image}/>
+    {/* // <article>{}</article> */}
+    <h2>{name}</h2>
+<h3>{id}</h3>
+<p>{age}</p>
+</article>
+  )
+})
+
+   }
    
-      <h2>{data}</h2>
-      <button onClick={()=>{console.log('you clicked me');}}>Clear All</button>
+     
+      
     </>
   );
 };
