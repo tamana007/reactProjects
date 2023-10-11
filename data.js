@@ -1,4 +1,5 @@
-export default [
+export 
+const list= [
   {
     id: 1,
     name: 'Bertie Yates',
